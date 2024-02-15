@@ -1,6 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
-import { Italic, Metric } from "@tremor/react";
+import { Metric } from "@tremor/react";
 
 export function Logo() {
   return (

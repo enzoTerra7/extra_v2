@@ -1,11 +1,18 @@
 "use client";
-import { CalendarClock, LayoutDashboard } from "lucide-react";
+import { CalendarClock, LayoutDashboard, LucideIcon, InfoIcon } from "lucide-react";
 import { Logo } from "./logo";
 import { Icon, Text } from "@tremor/react";
 import { usePathname, useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 
-export const routes = [
+export type Routes = {
+  name: string;
+  path: string;
+  icon: LucideIcon;
+  exact?: boolean;
+};
+
+export const routes: Array<Routes> = [
   {
     name: "dashboard",
     path: "/dashboard",
@@ -16,6 +23,11 @@ export const routes = [
     name: "Meu extras",
     path: "/dashboard/my-extras",
     icon: CalendarClock,
+  },
+  {
+    name: "Informações e Novidades",
+    path: "/dashboard/information",
+    icon: InfoIcon,
   },
 ];
 
@@ -29,7 +41,9 @@ export function Aside() {
         <Logo />
       </div>
       {routes.map((route, index) => {
-        const isCurrent = route.exact ? path === route.path : path?.includes(route.path);
+        const isCurrent = route.exact
+          ? path === route.path
+          : path?.includes(route.path);
         return (
           <div
             className={cn(
