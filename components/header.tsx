@@ -27,14 +27,14 @@ export function Header() {
             <Popover>
               <PopoverTrigger>
                 <div className="flex gap-2.5 items-center p-1.5 rounded-sm transition-colors duration-300 hover:bg-neutral-100 dark:hover:bg-neutral-900">
-                  <Image
+                  {/* <Image
                     priority
                     alt="Imagem do usuário"
                     src="/images/defaultUser.jpg"
                     width={48}
                     height={48}
                     className="w-16 h-16 border border-border rounded-full object-cover"
-                  />
+                  /> */}
                   <div className="hidden sm:flex flex-col justify-center gap-1">
                     <Text className="text-start text-lg">
                       Olá,{" "}
@@ -55,7 +55,7 @@ export function Header() {
                 align="center"
                 className="mt-2.5 outline-none shadow dark:border dark:border-neutral-800 p-6 flex flex-col gap-4"
               >
-                <Image
+                {/* <Image
                   priority
                   alt="Imagem do usuário"
                   src="/images/defaultUser.jpg"
@@ -63,7 +63,7 @@ export function Header() {
                   height={48}
                   className="w-16 mx-auto h-16 border border-border rounded-full object-cover"
                 />
-                <Divider />
+                <Divider /> */}
                 <div className="flex flex-col gap-2.5">
                   <div
                     className="flex cursor-pointer items-center p-2.5 rounded-sm hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors duration-300"

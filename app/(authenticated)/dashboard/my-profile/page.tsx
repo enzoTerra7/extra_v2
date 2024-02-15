@@ -45,7 +45,7 @@ export default function MyExtras() {
           </Metric>
         </Card>
       </div>
-      <div className="relative w-44 h-44 rounded-full mx-auto overflow-hidden border border-border group">
+      {/* <div className="relative w-44 h-44 rounded-full mx-auto overflow-hidden border border-border group">
         <Image
           priority
           alt="Imagem do usuário"
@@ -76,7 +76,7 @@ export default function MyExtras() {
             setNewImage(null);
           }}
         />
-      </div>
+      </div> */}
       <div className="w-full flex flex-col p-6 gap-2 rounded-xl bg-neutral-100 dark:bg-neutral-900">
         <div className="truncate mb-4">
           <Title className="text-center lg:text-start text-xl lg:text-2xl font-bold tracking-tight">

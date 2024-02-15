@@ -71,7 +71,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
             });
             setStatus((e) => "logged");
             if (pathname == "/") {
-              router.push("/dashboard");
+              router.push("/dashboard/my-extras");
             }
             return parsedData;
           }
