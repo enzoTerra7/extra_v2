@@ -1,0 +1,12 @@
+{
+  "hasSrc": false,
+  "packages": [
+    "prisma",
+    "shadcn-ui"
+  ],
+  "preferredPackageManager": "yarn",
+  "rootPath": "",
+  "orm": "prisma",
+  "driver": "pg",
+  "auth": null
+}
