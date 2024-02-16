@@ -132,15 +132,15 @@ export default function MyExtras() {
       >
         <div className="flex flex-col gap-4 lg:flex-row items-center justify-center lg:justify-between">
           <div className="truncate">
-            <Title className="text-center lg:text-start text-4xl font-bold tracking-tight">
+            <Title className="text-center lg:text-start text-3xl lg:text-4xl font-bold tracking-tight">
               Seus Extras
             </Title>
-            <Text className="text-center lg:text-start truncate">
+            <Text className="text-center text-wrap lg:text-start lg:truncate">
               Verifique os dados do seu extra e edite-os
             </Text>
           </div>
 
-          <div className="flex items-center justify-center lg:justify-end gap-4">
+          <div className="flex flex-col lg:items-center lg:justify-end gap-4">
             {editable ? (
               <>
                 <Button
@@ -272,7 +272,6 @@ export default function MyExtras() {
             text="Você descontou as horas?"
             // checked={showDiscountedHours}
             onCheckedChange={(e) => {
-              console.log("call when editable change");
               if (!e) {
                 methods.setValue("discountedHours", "");
               }

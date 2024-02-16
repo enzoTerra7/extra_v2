@@ -103,7 +103,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="flex w-[95vw] rounded-xl lg:rounded-none shadow dark:shadow-none dark:border dark:border-neutral-600 lg:border-none lg:flex-1 max-h-[95svh] lg:max-h-none lg:min-h-[100svh] flex-col p-7 bg-neutral-50 dark:bg-neutral-800 lg:justify-center gap-4 overflow-y-auto lg:overflow-hidden">
+      <div className="flex w-screen shadow dark:shadow-none border-none lg:flex-1 max-h-[95svh] lg:max-h-none min-h-[100svh] flex-col p-7 bg-neutral-50 dark:bg-neutral-800 lg:justify-center gap-4 overflow-y-auto lg:overflow-hidden">
         <Title className="text-4xl text-black dark:text-white font-bold">
           Meus Extras
         </Title>
@@ -114,7 +114,7 @@ export default function Home() {
           onSubmit={(data) => mutation.mutate(data)}
           handleSubmit={handleSubmit}
         >
-          <div className="flex flex-col w-full lg:flex-row lg:gap-4">
+          <div className="flex flex-col w-full lg:flex-row gap-4">
             <Input
               {...methods}
               disabled={mutation.isLoading}
@@ -147,7 +147,7 @@ export default function Home() {
             name="email"
             required
           />
-          <div className="flex flex-col w-full lg:flex-row lg:gap-4">
+          <div className="flex flex-col w-full lg:flex-row gap-4">
             <Input
               {...methods}
               disabled={mutation.isLoading}
@@ -171,7 +171,7 @@ export default function Home() {
               containerClass="w-full"
             />
           </div>
-          <div className="flex flex-col w-full lg:flex-row lg:gap-4">
+          <div className="flex flex-col w-full lg:flex-row gap-4">
             <Input
               {...methods}
               disabled={mutation.isLoading}
@@ -225,7 +225,7 @@ export default function Home() {
             name="phone"
             mask={["(99) 9999-9999", "(99) 99999-9999"]}
           />
-          <Button type="submit" disabled={mutation.isLoading}>
+          <Button className="mt-4 lg:mt-0" type="submit" disabled={mutation.isLoading}>
             Criar conta
             <Icon icon={Send} size="md" />
           </Button>

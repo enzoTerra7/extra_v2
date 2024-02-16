@@ -3,10 +3,11 @@ import { Bold, Text, Title } from "@tremor/react";
 export default function Information() {
   return (
     <>
+      {/* How Works */}
       <div className="p-6 flex gap-4 flex-col rounded-xl bg-neutral-100 dark:bg-neutral-900">
         <div className="flex flex-col gap-4">
           <div className="truncate">
-            <Title className="text-center lg:text-start text-4xl font-bold tracking-tight">
+            <Title className="text-center text-wrap lg:text-start text-4xl font-bold tracking-tight">
               Como funciona o cálculo?
             </Title>
           </div>
@@ -64,10 +65,12 @@ export default function Information() {
           </div>
         </div>
       </div>
+
+      {/* What's next */}
       <div className="p-6 flex gap-4 flex-col rounded-xl bg-neutral-100 dark:bg-neutral-900">
         <div className="flex flex-col gap-4">
           <div className="truncate">
-            <Title className="text-center lg:text-start text-4xl font-bold tracking-tight">
+            <Title className="text-center text-wrap lg:text-start text-4xl font-bold tracking-tight">
               O que vai vim de novo?
             </Title>
           </div>
@@ -84,23 +87,29 @@ export default function Information() {
               de horas desde que entrou na plataforma!
             </li>
             <li>
-              <Bold>Foto de perfil</Bold> - Para maior customização da
-              plataforma, iremos adicionar a opção de você inserir uma linda
-              foto de perfil.
+              <Bold>Recuperação de Senha</Bold> - Como o povo tem memória fraca
+              e pode acabar esquecendo a senha, será implementado uma tela de
+              recuperação de senha para que você possa redefinir a sua caso
+              perca.
             </li>
           </ul>
         </div>
       </div>
+
+      {/* Possible changes to future */}
       <div className="p-6 flex gap-4 flex-col rounded-xl bg-neutral-100 dark:bg-neutral-900">
         <div className="flex flex-col gap-4">
           <div className="truncate">
-            <Title className="text-center lg:text-start text-4xl font-bold tracking-tight">
+            <Title className="text-center text-wrap lg:text-start text-4xl font-bold tracking-tight">
               E possíveis alterações?
             </Title>
           </div>
           <Text className="text-start">
-            Para tentar completar ainda mais a plataforma <Bold><span className="text-sky-600">EX</span>TRAS</Bold>,
-            poderão ser adicionadas (mas nada garantido) funcionalidades como:
+            Para tentar completar ainda mais a plataforma{" "}
+            <Bold>
+              <span className="text-sky-600">EX</span>TRAS
+            </Bold>
+            , poderão ser adicionadas (mas nada garantido) funcionalidades como:
           </Text>
           <ul>
             <li>

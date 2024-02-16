@@ -60,7 +60,7 @@ export default function CustomTable<T>({
       {loading ? (
         <div className="w-full items-center justify-center p-6 flex flex-col gap-3 text-neutral-600 dark:text-neutral-300 text-sm font-medium">
           <Loader />
-          <p>Buscando os dados</p>
+          <p className="text-center">Buscando os dados</p>
         </div>
       ) : (
         data.map((row, index) => (
@@ -96,7 +96,7 @@ export default function CustomTable<T>({
       {(!!!data.length && !loading) && (
         <div className="w-full items-center justify-center p-6 flex flex-col gap-3 text-neutral-600 dark:text-neutral-300 text-sm font-medium">
           <Icon icon={CircleOff} size="xl" />
-          <p>Não foi encontrado nenhuma dado na listagem</p>
+          <p className="text-center">Não foi encontrado nenhuma dado na listagem</p>
         </div>
       )}
     </div>

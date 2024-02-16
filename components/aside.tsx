@@ -14,13 +14,13 @@ export type Routes = {
 
 export const routes: Array<Routes> = [
   // {
-  //   name: "dashboard",
+  //   name: "Dashboard",
   //   path: "/dashboard",
   //   icon: LayoutDashboard,
   //   exact: true
   // },
   {
-    name: "Meu extras",
+    name: "Meu Extras",
     path: "/dashboard/my-extras",
     icon: CalendarClock,
   },
@@ -47,7 +47,7 @@ export function Aside() {
         return (
           <div
             className={cn(
-              "flex items-center gap-2.5 p-2 capitalize rounded transition-colors duration-300 hover:bg-neutral-200 dark:hover:bg-neutral-800 cursor-pointer",
+              "flex items-center gap-2.5 p-2 rounded transition-colors duration-300 hover:bg-neutral-200 dark:hover:bg-neutral-800 cursor-pointer",
               {
                 "bg-sky-200 dark:bg-sky-800 dark:hover:bg-sky-800 hover:bg-sky-200 pointer-events-none":
                   isCurrent,

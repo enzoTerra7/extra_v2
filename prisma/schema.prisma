@@ -33,6 +33,7 @@ model User {
   hashed_password  String    @default("")
   hour_value       Float     @default(0.00)
   extra_hour_value Float     @default(0.00)
+  image            String?   @default("/images/defaultUser.jpg")
   Extras           Extras[]
 }
 

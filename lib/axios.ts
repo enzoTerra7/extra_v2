@@ -11,7 +11,6 @@ const api = axios.create({
 api.interceptors.response.use(
   (response: AxiosResponse) => response,
   (error: any) => {
-    console.error("ERRO NO AXIOS", error)
     const err = error.response;
     if (err.status === 401) {
       Cookies.remove("user");

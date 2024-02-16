@@ -68,8 +68,6 @@ export async function POST(request: Request) {
     );
   } catch (e) {
     prisma.$disconnect();
-    console.error(e);
-    console.error("Parsed Error", JSON.stringify(e, null, 2));
     return new Response(JSON.stringify(e), {
       status: 400,
       statusText: "Bad Request - Wrong payload",

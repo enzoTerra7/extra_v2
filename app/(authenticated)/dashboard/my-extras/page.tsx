@@ -4,9 +4,7 @@ import { Button } from "@/components/ui/button";
 import CustomTable, { ColumnDef } from "@/components/ui/custom-table";
 import { useExtra } from "@/context/hoursProvider";
 import api from "@/lib/axios";
-import {
-  formatCurrency,
-} from "@/lib/utils";
+import { formatCurrency } from "@/lib/utils";
 import { Extras } from "@prisma/client";
 import { Icon, Text, Title } from "@tremor/react";
 import { format } from "date-fns";
@@ -18,23 +16,56 @@ const column: ColumnDef<Extras>[] = [
   {
     id: "date",
     header: "Data",
-    cell: (value) => <>{format(new Date(value.date), "dd/MM/yyyy")}</>,
+    cell: (value) => (
+      <p className="w-full text-left">
+        <span className="text-lg font-bold uppercase lg:hidden">Dia: </span>
+        {format(new Date(value.date), "dd/MM/yyyy")}
+      </p>
+    ),
   },
   {
     id: "hours",
     header: "Horas",
-    cell: (value) => value.hours_make,
+    cell: (value) => (
+      <p className="w-full text-left">
+        <span className="text-lg font-bold uppercase lg:hidden">
+          HORAS FEITAS:{" "}
+        </span>
+        {value.hours_make}
+      </p>
+    ),
   },
   {
     id: "discountedHours",
     header: "Horas Descontadas",
-    cell: (value) => value.hasDiscounted ? value.discounted_hours : "-",
+    cell: (value) =>
+      value.hasDiscounted ? (
+        <p className="w-full text-left">
+          <span className="text-lg font-bold uppercase lg:hidden">
+            HORAS DESCONTADAS:{" "}
+          </span>
+          {value.discounted_hours}
+        </p>
+      ) : (
+        "-"
+      ),
   },
   {
     id: "description",
     header: "Descrição das atividades",
     cell: (value) => (
-      <Text className="truncate">{value.description || "-"}</Text>
+      <Text className="truncate">
+        {value.description ? (
+          <p className="w-full text-left">
+            <span className="text-lg font-bold uppercase lg:hidden">
+              Descrição:{" "}
+            </span>
+            {value.description}
+          </p>
+        ) : (
+          "-"
+        )}
+      </Text>
     ),
     className: "lg:flex-[2]",
   },
@@ -42,9 +73,15 @@ const column: ColumnDef<Extras>[] = [
     id: "value",
     header: "Ganhos",
     cell: (value) => (
-      <span className="text-emerald-500 font-semibold">
-        {formatCurrency(value.gains)}
-      </span>
+      <p className="w-full text-left">
+        <span className="text-lg font-bold uppercase lg:hidden">
+          Valor ganho:{" "}
+        </span>
+
+        <span className="text-emerald-500 font-semibold">
+          {formatCurrency(value.gains)}
+        </span>
+      </p>
     ),
   },
 ];
@@ -69,7 +106,7 @@ export default function MyExtras() {
             <Title className="text-center lg:text-start text-4xl font-bold tracking-tight">
               Seus Extras
             </Title>
-            <Text className="text-center lg:text-start truncate">
+            <Text className="text-center text-wrap lg:text-start">
               Verifique todos os seus registros de horas extras
             </Text>
           </div>

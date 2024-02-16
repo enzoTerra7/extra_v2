@@ -43,7 +43,7 @@ export default function Home() {
       return data as LoginResponse;
     },
     onSuccess(data) {
-      UpdateCookiesAndHeader(data.user, data.session)
+      UpdateCookiesAndHeader(data.user, data.session);
       toast.success("Login realizado com sucesso!");
       router.push("/dashboard/my-extras");
     },
@@ -72,7 +72,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="flex w-[95vw] rounded-xl lg:rounded-none shadow dark:shadow-none dark:border dark:border-neutral-600 lg:border-none lg:flex-1 max-h-[95svh] lg:max-h-none lg:min-h-[100svh] flex-col p-7 bg-neutral-50 dark:bg-neutral-800 lg:justify-center gap-4 overflow-y-auto lg:overflow-hidden">
+      <div className="flex w-screen shadow dark:shadow-none border-none lg:flex-1 max-h-[95svh] lg:max-h-none min-h-[100svh] flex-col p-7 bg-neutral-50 dark:bg-neutral-800 justify-center gap-4 overflow-y-auto lg:overflow-hidden">
         {status !== "unauthorized" ? (
           <>
             <Loader />

@@ -13,6 +13,7 @@ export const userSchema = z.object({
   hashed_password: z.string(),
   hour_value: z.number(),
   extra_hour_value: z.number(),
+  image: z.string().nullish(),
 })
 
 export interface CompleteUser extends z.infer<typeof userSchema> {

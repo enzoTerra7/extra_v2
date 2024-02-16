@@ -7,9 +7,7 @@ export const ValidateCookie = async (
     sessionId: string;
   }
 ) => {
-  console.debug("received user", user.sessionId)
   const session = await ValidateSession(user.sessionId);
-  console.debug("has session", session)
   if (session.session !== null && session.user !== null) return session;
   return null;
 };

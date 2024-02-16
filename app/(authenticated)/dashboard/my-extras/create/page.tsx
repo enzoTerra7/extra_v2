@@ -56,7 +56,6 @@ export default function MyExtras() {
       return data as ExtraPayloadPostAndPut;
     },
     onSuccess(data) {
-      console.log("returned extra payload", data);
       toast.success("Extra criado com sucesso");
       router.push("/dashboard/my-extras");
     },
@@ -78,7 +77,7 @@ export default function MyExtras() {
       >
         <div className="flex flex-col gap-4 lg:flex-row items-center justify-center lg:justify-between">
           <div className="truncate">
-            <Title className="text-center lg:text-start text-4xl font-bold tracking-tight">
+            <Title className="text-center lg:text-start text-3xl lg:text-4xl font-bold tracking-tight">
               Adicionar Extras
             </Title>
             <Text className="text-center lg:text-start truncate">

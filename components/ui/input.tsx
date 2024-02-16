@@ -124,7 +124,7 @@ export const Input = ({
                   : props.type
               }
               className={cn(
-                "bg-transparent dark:text-white text-dark outline-none border-none flex-1 placeholder:text-neutral-500 text-sm h-full autofill:bg-black!"
+                "bg-transparent dark:text-white text-dark outline-none border-none flex-1 placeholder:text-neutral-500 text-sm h-full w-full autofill:bg-black!"
               )}
               onValueChange={(e) => {
                 if (props.onValueChange) {

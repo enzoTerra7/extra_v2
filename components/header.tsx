@@ -27,14 +27,14 @@ export function Header() {
             <Popover>
               <PopoverTrigger>
                 <div className="flex gap-2.5 items-center p-1.5 rounded-sm transition-colors duration-300 hover:bg-neutral-100 dark:hover:bg-neutral-900">
-                  {/* <Image
+                  <Image
                     priority
                     alt="Imagem do usuário"
-                    src="/images/defaultUser.jpg"
+                    src={user.image ?? "/images/defaultUser.jpg"}
                     width={48}
                     height={48}
                     className="w-16 h-16 border border-border rounded-full object-cover"
-                  /> */}
+                  />
                   <div className="hidden sm:flex flex-col justify-center gap-1">
                     <Text className="text-start text-lg">
                       Olá,{" "}
