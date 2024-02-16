@@ -51,7 +51,7 @@ export default function Home() {
       toast.error(
         typeof error.response.data === "string"
           ? error.response.data
-          : "Credenciais inválidas"
+          : "Credenciais inválidas",
       );
     },
   });

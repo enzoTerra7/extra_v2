@@ -1,5 +1,10 @@
 "use client";
-import { CalendarClock, LayoutDashboard, LucideIcon, InfoIcon } from "lucide-react";
+import {
+  CalendarClock,
+  LayoutDashboard,
+  LucideIcon,
+  InfoIcon,
+} from "lucide-react";
 import { Logo } from "./logo";
 import { Icon, Text } from "@tremor/react";
 import { usePathname, useRouter } from "next/navigation";
@@ -51,7 +56,7 @@ export function Aside() {
               {
                 "bg-sky-200 dark:bg-sky-800 dark:hover:bg-sky-800 hover:bg-sky-200 pointer-events-none":
                   isCurrent,
-              }
+              },
             )}
             key={"route-" + index + route.name}
             onClick={() => router.push(route.path)}

@@ -37,7 +37,7 @@ export async function POST(request: Request) {
 
     const hashedPassword = bcrypt.compare(
       parsedData.password,
-      user.hashed_password
+      user.hashed_password,
     );
 
     if (!hashedPassword) {
@@ -64,7 +64,7 @@ export async function POST(request: Request) {
         headers: {
           "Content-Type": "application/json",
         },
-      }
+      },
     );
   } catch (e) {
     prisma.$disconnect();

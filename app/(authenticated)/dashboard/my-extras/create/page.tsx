@@ -63,7 +63,7 @@ export default function MyExtras() {
       toast.error(
         typeof error.response.data === "string"
           ? error.response.data
-          : "Verifique as informações"
+          : "Verifique as informações",
       );
     },
   });

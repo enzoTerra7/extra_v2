@@ -45,7 +45,7 @@ export function MobileNav() {
                     {
                       "bg-sky-200 dark:bg-sky-800 dark:hover:bg-sky-800 hover:bg-sky-200 pointer-events-none":
                         isCurrent,
-                    }
+                    },
                   )}
                   key={"route-" + index + route.name}
                   onClick={() => router.push(route.path)}

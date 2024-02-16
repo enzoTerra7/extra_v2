@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ClassNameValue } from "tailwind-merge";
-import { motion } from 'framer-motion'
+import { motion } from "framer-motion";
 
 interface Nav {
   containerStyle: ClassNameValue;
@@ -25,13 +25,16 @@ export function Nav({ containerStyle, linkStyle, underlineStyle }: Nav) {
         <Link
           href={link.path}
           key={index}
-          className={cn(`capitalize ${link.path == path && "text-primary font-bold" || ''}`, linkStyle)}
+          className={cn(
+            `capitalize ${(link.path == path && "text-primary font-bold") || ""}`,
+            linkStyle,
+          )}
         >
           {link.path == path && (
             <motion.span
-              initial={{ y: '-100%'}}
-              animate={{ y: 0}}
-              transition={{ type: 'tween' }}
+              initial={{ y: "-100%" }}
+              animate={{ y: 0 }}
+              transition={{ type: "tween" }}
               layoutId="underline"
               className={cn("", underlineStyle)}
             />

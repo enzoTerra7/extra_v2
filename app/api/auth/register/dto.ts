@@ -37,7 +37,7 @@ export const registerUserSchema = z
     {
       message: "Por favor, insira um telefone válido ou remova o campo!",
       path: ["phone"],
-    }
+    },
   );
 
 export type RegisterUserType = z.infer<typeof registerUserSchema>;

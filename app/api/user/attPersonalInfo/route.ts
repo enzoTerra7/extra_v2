@@ -63,7 +63,7 @@ export async function PUT(request: Request) {
       {
         status: 201,
         statusText: "User updated",
-      }
+      },
     );
   } catch (e) {
     prisma.$disconnect();

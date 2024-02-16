@@ -37,12 +37,15 @@ export default function MyExtras() {
       toast.error(
         typeof err.response.data === "string"
           ? err.response.data
-          : "Verifique as informações"
+          : "Verifique as informações",
       );
     },
   });
 
-  const updateImage = useCallback((e: { file: string }) => mutation.mutate(e), []);
+  const updateImage = useCallback(
+    (e: { file: string }) => mutation.mutate(e),
+    [],
+  );
 
   useEffect(() => {
     if (newImage instanceof File) {

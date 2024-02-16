@@ -89,7 +89,7 @@ export const Input = ({
           htmlFor={props.id}
           className={cn(
             "flex font-semibold text-sm items-center gap-1.5 h-6",
-            labelClass
+            labelClass,
           )}
         >
           {label}
@@ -124,7 +124,7 @@ export const Input = ({
                   : props.type
               }
               className={cn(
-                "bg-transparent dark:text-white text-dark outline-none border-none flex-1 placeholder:text-neutral-500 text-sm h-full w-full autofill:bg-black!"
+                "bg-transparent dark:text-white text-dark outline-none border-none flex-1 placeholder:text-neutral-500 text-sm h-full w-full autofill:bg-black!",
               )}
               onValueChange={(e) => {
                 if (props.onValueChange) {
@@ -155,7 +155,7 @@ export const Input = ({
               {...props}
               ref={mask ? withMask(mask) : undefined}
               className={cn(
-                "bg-transparent dark:text-white text-dark outline-none border-none flex-1 placeholder:text-neutral-500 text-sm h-full"
+                "bg-transparent dark:text-white text-dark outline-none border-none flex-1 placeholder:text-neutral-500 text-sm h-full",
               )}
               //@ts-expect-error I know the type will be right when i used
               type={

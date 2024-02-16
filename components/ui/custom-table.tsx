@@ -36,13 +36,13 @@ export default function CustomTable<T>({
     <div
       className={cn(
         "w-full flex flex-col lg:px-4 py-6 rounded-xl bg-neutral-100 dark:bg-neutral-900",
-        containerClass
+        containerClass,
       )}
     >
       <div
         className={cn(
           "w-full hidden lg:flex items-center gap-4 p-4 border-b border-border",
-          headerRowClass
+          headerRowClass,
         )}
       >
         {columns.map((column, index) => (
@@ -50,7 +50,7 @@ export default function CustomTable<T>({
             key={"header" + index}
             className={cn(
               "flex flex-1 text-center text-lg font-bold text-neutral-900 dark:text-neutral-200 pointer-events-none",
-              column.className
+              column.className,
             )}
           >
             {column.header || ""}
@@ -70,7 +70,7 @@ export default function CustomTable<T>({
               {
                 "rounded-ss-lg rounded-se-lg lg:rounded-none": index == 0,
               },
-              cellRowClass
+              cellRowClass,
             )}
             key={"row" + index}
             onClick={rowClick ? () => rowClick(row) : undefined}
@@ -80,23 +80,25 @@ export default function CustomTable<T>({
                 key={"content" + index + idx}
                 className={cn(
                   "flex lg:flex-1 text-center pointer-events-none text-sm text-black dark:text-white",
-                  column.className
+                  column.className,
                 )}
               >
                 {column?.accessorKey
                   ? (row[column.accessorKey] as React.ReactNode)
                   : column?.cell
-                  ? column.cell(row)
-                  : ""}
+                    ? column.cell(row)
+                    : ""}
               </div>
             ))}
           </div>
         ))
       )}
-      {(!!!data.length && !loading) && (
+      {!!!data.length && !loading && (
         <div className="w-full items-center justify-center p-6 flex flex-col gap-3 text-neutral-600 dark:text-neutral-300 text-sm font-medium">
           <Icon icon={CircleOff} size="xl" />
-          <p className="text-center">Não foi encontrado nenhuma dado na listagem</p>
+          <p className="text-center">
+            Não foi encontrado nenhuma dado na listagem
+          </p>
         </div>
       )}
     </div>

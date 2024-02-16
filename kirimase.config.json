@@ -1,9 +1,6 @@
 {
   "hasSrc": false,
-  "packages": [
-    "prisma",
-    "shadcn-ui"
-  ],
+  "packages": ["prisma", "shadcn-ui"],
   "preferredPackageManager": "yarn",
   "rootPath": "",
   "orm": "prisma",

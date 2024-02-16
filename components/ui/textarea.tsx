@@ -38,7 +38,7 @@ export const Textarea = memo(
           htmlFor={props.id}
           className={cn(
             "flex font-semibold text-sm items-center gap-2.5",
-            labelClass
+            labelClass,
           )}
         >
           {label}
@@ -71,7 +71,10 @@ export const Textarea = memo(
                 value={value}
                 onValueChange={(e) => onChange(e)}
                 aria-label={label}
-                className={cn("bg-transparent disabled:bg-neutral-300/80 hover:disabled:bg-neutral-300/80 disabled:border-neutral-300/80 dark:disabled:bg-neutral-600/80 dark:hover:disabled:bg-neutral-600/80 dark:disabled:border-neutral-600/80", props.className)}
+                className={cn(
+                  "bg-transparent disabled:bg-neutral-300/80 hover:disabled:bg-neutral-300/80 disabled:border-neutral-300/80 dark:disabled:bg-neutral-600/80 dark:hover:disabled:bg-neutral-600/80 dark:disabled:border-neutral-600/80",
+                  props.className,
+                )}
               />
             )}
           />
@@ -94,8 +97,7 @@ export const Textarea = memo(
       )}
     </div>
   ),
-  (prevProps, nextProps) =>
-    prevProps === nextProps
+  (prevProps, nextProps) => prevProps === nextProps,
 );
 
 Textarea.displayName = "Textarea";

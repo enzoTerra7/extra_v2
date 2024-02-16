@@ -38,7 +38,7 @@ export async function PUT(request: Request) {
     const { hour_value, extra_hour_value } = CalculateHoursValue(
       parsedData.value,
       parseInt(parsedData.days),
-      parseInt(parsedData.hours)
+      parseInt(parsedData.hours),
     );
 
     const updatedUser = await prisma.user.update({
@@ -71,7 +71,7 @@ export async function PUT(request: Request) {
       {
         status: 201,
         statusText: "User salary infos updated",
-      }
+      },
     );
   } catch (e) {
     prisma.$disconnect();

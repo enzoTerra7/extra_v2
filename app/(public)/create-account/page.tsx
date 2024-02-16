@@ -62,13 +62,13 @@ const schema = z
     {
       message: "Por favor, insira um telefone válido ou remova o campo!",
       path: ["phone"],
-    }
+    },
   );
 
 type FormData = z.infer<typeof schema>;
 
 export default function Home() {
-  const router = useRouter()
+  const router = useRouter();
   const methods = useForm<FormData>({ resolver: zodResolver(schema) });
   const { handleSubmit, setValue } = methods;
 
@@ -80,7 +80,7 @@ export default function Home() {
     },
     onSuccess(data) {
       toast.success("Conta criada com sucesso!");
-      router.push("/")
+      router.push("/");
     },
     onError(error) {
       toast.error("Credenciais inválidas");
@@ -225,7 +225,11 @@ export default function Home() {
             name="phone"
             mask={["(99) 9999-9999", "(99) 99999-9999"]}
           />
-          <Button className="mt-4 lg:mt-0" type="submit" disabled={mutation.isLoading}>
+          <Button
+            className="mt-4 lg:mt-0"
+            type="submit"
+            disabled={mutation.isLoading}
+          >
             Criar conta
             <Icon icon={Send} size="md" />
           </Button>

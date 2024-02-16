@@ -28,7 +28,7 @@ const schema = z
     {
       message: "Por favor, insira um telefone válido ou remova o campo!",
       path: ["phone"],
-    }
+    },
   );
 
 type FormData = z.infer<typeof schema>;
@@ -64,7 +64,7 @@ export function ContactForm(props: ContactFormProps) {
       toast.error(
         typeof error.response.data === "string"
           ? error.response.data
-          : "Credenciais inválidas"
+          : "Credenciais inválidas",
       );
     },
   });

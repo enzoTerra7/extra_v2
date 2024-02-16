@@ -18,13 +18,13 @@ api.interceptors.response.use(
     } else {
       return Promise.reject(error);
     }
-  }
+  },
 );
 
 export default api;
 
 export type AxiosError = {
   response: {
-    data: any
-  }
-}
+    data: any;
+  };
+};

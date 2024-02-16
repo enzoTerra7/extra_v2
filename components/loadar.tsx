@@ -5,7 +5,6 @@ type Loader = {
   className?: ClassNameValue;
 };
 
-
 export function Loader(props: Loader) {
   return (
     <svg

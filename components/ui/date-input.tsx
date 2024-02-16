@@ -15,7 +15,7 @@ interface InputProps
   containerClass?: ClassNameValue;
   labelClass?: ClassNameValue;
   labelSuffixClass?: ClassNameValue;
-  required?: boolean
+  required?: boolean;
 }
 
 export const DateInput = memo(
@@ -33,7 +33,7 @@ export const DateInput = memo(
           htmlFor={props.id}
           className={cn(
             "flex font-semibold text-sm items-center gap-1.5",
-            labelClass
+            labelClass,
           )}
         >
           {label}
@@ -79,17 +79,14 @@ export const DateInput = memo(
           )}
         </>
       ) : (
-        <DatePicker
-          {...props}
-          aria-label={label}
-        />
+        <DatePicker {...props} aria-label={label} />
       )}
     </div>
   ),
   (prevProps, nextProps) =>
     prevProps.formState && nextProps.formState
       ? prevProps.formState.errors === nextProps.formState.errors
-      : false
+      : false,
 );
 
 DateInput.displayName = "DateInput";

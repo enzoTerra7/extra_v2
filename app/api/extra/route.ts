@@ -31,14 +31,16 @@ export async function POST(request: Request) {
 
     const totalHoursMade = hourDifference(
       parsedData.initHours,
-      parsedData.finalHours
+      parsedData.finalHours,
     );
 
     const extra = await prisma.extras.create({
       data: {
         date: parsedData.date,
         description: parsedData.description,
-        discounted_hours: parsedData.discountHours ? parsedData.discountedHours : undefined,
+        discounted_hours: parsedData.discountHours
+          ? parsedData.discountedHours
+          : undefined,
         hasDiscounted: parsedData.discountHours,
         start_hour: parsedData.initHours,
         end_hour: parsedData.finalHours,
@@ -46,7 +48,7 @@ export async function POST(request: Request) {
         gains: CalculateExtraGains(
           user.extra_hour_value,
           totalHoursMade!,
-          parsedData.discountedHours
+          parsedData.discountedHours,
         ),
         userId: user.id,
       },
@@ -61,7 +63,7 @@ export async function POST(request: Request) {
       {
         status: 201,
         statusText: "Created",
-      }
+      },
     );
   } catch (e) {
     prisma.$disconnect();
@@ -84,8 +86,6 @@ export type ExtraPayloadPostAndPut = {
   gains: number;
   userId: string;
 };
-
-
 
 export async function GET(request: Request) {
   try {
@@ -124,7 +124,7 @@ export async function GET(request: Request) {
       {
         status: 200,
         statusText: "Returned extras",
-      }
+      },
     );
   } catch (e) {
     prisma.$disconnect();

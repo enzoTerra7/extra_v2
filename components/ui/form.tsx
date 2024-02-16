@@ -9,16 +9,15 @@ interface FormProps {
   children: React.ReactElement[];
   onSubmit: (e?: any) => any;
   className?: ClassNameValue;
-  handleSubmit: UseFormHandleSubmit<any, undefined>
+  handleSubmit: UseFormHandleSubmit<any, undefined>;
 }
 
 export default function Form({
   children,
   onSubmit,
   className,
-  handleSubmit
+  handleSubmit,
 }: FormProps) {
-
   return (
     <form
       className={cn("flex flex-col gap-3.5 w-full", className)}

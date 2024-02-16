@@ -64,7 +64,7 @@ export async function POST(request: Request) {
       {
         status: 201,
         statusText: "User salary infos updated",
-      }
+      },
     );
   } catch (e) {
     prisma.$disconnect();

@@ -59,7 +59,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       const allUserSessions = await GetUserSessions(parsedData.id);
       if (!!allUserSessions.length && parsedData) {
         const currentSession = allUserSessions.find(
-          (e) => e.id == parsedData.sessionId
+          (e) => e.id == parsedData.sessionId,
         );
         if (currentSession) {
           const currentDateTime = new Date();

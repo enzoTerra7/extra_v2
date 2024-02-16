@@ -1,20 +1,23 @@
-"use server"
-import { DeleteExpiredSessions, GetAllUserSessions, InvalidateAllUserSessions, ValidateSession } from "@/lib/api/auth";
+"use server";
+import {
+  DeleteExpiredSessions,
+  GetAllUserSessions,
+  InvalidateAllUserSessions,
+  ValidateSession,
+} from "@/lib/api/auth";
 import { User } from "@prisma/client";
 
 export const ValidateCookie = async (
   user: User & {
     sessionId: string;
-  }
+  },
 ) => {
   const session = await ValidateSession(user.sessionId);
   if (session.session !== null && session.user !== null) return session;
   return null;
 };
 
-export const InvalidateUserSection = async (
-  userId: string
-) => {
+export const InvalidateUserSection = async (userId: string) => {
   InvalidateAllUserSessions(userId);
   return null;
 };

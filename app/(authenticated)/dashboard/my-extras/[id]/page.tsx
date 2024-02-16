@@ -80,7 +80,7 @@ export default function MyExtras() {
       toast.error(
         typeof error.response.data === "string"
           ? error.response.data
-          : "Verifique as informações"
+          : "Verifique as informações",
       );
     },
   });
@@ -98,7 +98,7 @@ export default function MyExtras() {
       toast.error(
         typeof error.response.data === "string"
           ? error.response.data
-          : "Verifique as informações"
+          : "Verifique as informações",
       );
     },
   });
@@ -175,7 +175,7 @@ export default function MyExtras() {
                       "discountHours",
                       showDiscountedHours !== extra.hasDiscounted
                         ? showDiscountedHours
-                        : extra.hasDiscounted
+                        : extra.hasDiscounted,
                     );
                   }}
                   className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-sky-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-600 focus-visible:ring-offset-2 disabled:pointer-events-none h-10 px-4 py-2 disabled:opacity-50 gap-1.5 transition-all duration-300 bg-sky-600 text-white hover:bg-sky-600/90 cursor-pointer"

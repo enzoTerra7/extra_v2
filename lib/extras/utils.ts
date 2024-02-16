@@ -22,7 +22,7 @@ export function UpdateCookiesAndHeader(user: User, session: Session) {
     }),
     {
       expires: 14,
-    }
+    },
   );
   api.defaults.headers.common.Authorization = `Bearer ${session.id}`;
 }

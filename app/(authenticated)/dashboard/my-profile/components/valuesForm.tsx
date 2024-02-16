@@ -66,17 +66,14 @@ export function ValueForm(props: ValueFormProps) {
       toast.error(
         typeof error.response.data === "string"
           ? error.response.data
-          : "Credenciais inválidas"
+          : "Credenciais inválidas",
       );
     },
   });
 
   return (
     <>
-      <Form
-        onSubmit={mutation.mutate}
-        handleSubmit={handleSubmit}
-      >
+      <Form onSubmit={mutation.mutate} handleSubmit={handleSubmit}>
         <div className="flex flex-col w-full lg:flex-row gap-y-2 gap-x-4">
           <Input
             {...methods}

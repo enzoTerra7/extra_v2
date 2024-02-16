@@ -13,7 +13,7 @@ export async function POST(request: Request) {
     const { hour_value, extra_hour_value } = CalculateHoursValue(
       parsedData.value,
       parseInt(parsedData.days),
-      parseInt(parsedData.hours)
+      parseInt(parsedData.hours),
     );
 
     const user = await prisma.user.create({
@@ -39,7 +39,7 @@ export async function POST(request: Request) {
       {
         status: 201,
         statusText: "Created",
-      }
+      },
     );
   } catch (e) {
     prisma.$disconnect();

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { memo } from "react";
 import {
   Icon,
@@ -49,7 +49,7 @@ export const Select = memo(
           htmlFor={props.id}
           className={cn(
             "flex font-semibold text-sm items-center gap-2.5",
-            labelClass
+            labelClass,
           )}
         >
           {label}
@@ -93,7 +93,7 @@ export const Select = memo(
     </div>
   ),
   (prevProps, nextProps) =>
-    prevProps.formState.errors === nextProps.formState.errors
+    prevProps.formState.errors === nextProps.formState.errors,
 );
 
 export const NoFormSelect = memo(
@@ -111,7 +111,7 @@ export const NoFormSelect = memo(
           htmlFor={props.id}
           className={cn(
             "flex font-semibold text-sm items-center gap-2.5",
-            labelClass
+            labelClass,
           )}
         >
           {label}
@@ -133,7 +133,7 @@ export const NoFormSelect = memo(
       <TremorSelect {...props} aria-label={label} />
     </div>
   ),
-  (prevProps, nextProps) => prevProps === nextProps
+  (prevProps, nextProps) => prevProps === nextProps,
 );
 
 Select.displayName = "Select";

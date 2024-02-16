@@ -37,7 +37,7 @@ export const Switch = memo(
           htmlFor={props.id}
           className={cn(
             "flex font-semibold text-sm items-center gap-2.5",
-            labelClass
+            labelClass,
           )}
         >
           {label}
@@ -77,7 +77,7 @@ export const Switch = memo(
                   {...props}
                   className={cn(
                     "w-10 h-4 flex items-center rounded-full relative bg-neutral-500 data-[state=checked]:bg-emerald-500 dark:data-[state=checked]:bg-emerald-600 outline-none cursor-pointer disabled:pointer-events-none",
-                    props.className
+                    props.className,
                   )}
                   name={name}
                   disabled={disabled}
@@ -99,7 +99,7 @@ export const Switch = memo(
                   "flex font-normal cursor-pointer text-sm items-center gap-2.5",
                   {
                     "cursor-default": props.disabled,
-                  }
+                  },
                 )}
               >
                 {text}
@@ -126,7 +126,7 @@ export const Switch = memo(
                 "flex font-normal cursor-pointer text-sm items-center gap-2.5",
                 {
                   "cursor-default": props.disabled,
-                }
+                },
               )}
             >
               {text}
@@ -136,7 +136,7 @@ export const Switch = memo(
       )}
     </div>
   ),
-  (prevProps, nextProps) => prevProps === nextProps
+  (prevProps, nextProps) => prevProps === nextProps,
 );
 
 Switch.displayName = "Switch";

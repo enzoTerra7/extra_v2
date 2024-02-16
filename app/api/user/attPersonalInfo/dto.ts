@@ -14,7 +14,7 @@ export const AttPersonalInfoSchema = z
     {
       message: "Por favor, insira um telefone válido ou remova o campo!",
       path: ["phone"],
-    }
+    },
   );
 
 export type AttPersonalInfoProps = z.infer<typeof AttPersonalInfoSchema>;

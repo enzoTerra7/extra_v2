@@ -36,7 +36,7 @@ export async function PUT(request: Request, context: ContextRoute) {
 
     const totalHoursMade = hourDifference(
       parsedData.initHours,
-      parsedData.finalHours
+      parsedData.finalHours,
     );
 
     const extra = await prisma.extras.update({
@@ -46,7 +46,9 @@ export async function PUT(request: Request, context: ContextRoute) {
       data: {
         date: parsedData.date,
         description: parsedData.description,
-        discounted_hours: parsedData.discountHours ? parsedData.discountedHours : "00:00",
+        discounted_hours: parsedData.discountHours
+          ? parsedData.discountedHours
+          : "00:00",
         hasDiscounted: parsedData.discountHours,
         start_hour: parsedData.initHours,
         end_hour: parsedData.finalHours,
@@ -54,7 +56,7 @@ export async function PUT(request: Request, context: ContextRoute) {
         gains: CalculateExtraGains(
           user.extra_hour_value,
           totalHoursMade!,
-          parsedData.discountedHours
+          parsedData.discountedHours,
         ),
         userId: user.id,
       },
@@ -69,7 +71,7 @@ export async function PUT(request: Request, context: ContextRoute) {
       {
         status: 200,
         statusText: "Edited",
-      }
+      },
     );
   } catch (e) {
     prisma.$disconnect();
@@ -117,7 +119,7 @@ export async function DELETE(request: Request, context: ContextRoute) {
       {
         status: 200,
         statusText: "Deleted extra",
-      }
+      },
     );
   } catch (e) {
     prisma.$disconnect();

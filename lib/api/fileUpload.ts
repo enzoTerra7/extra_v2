@@ -1,4 +1,4 @@
-import { v2 as cloudinaryV2 } from 'cloudinary';
+import { v2 as cloudinaryV2 } from "cloudinary";
 
 export async function uploadImage(base64Data: string, fileName: string) {
   cloudinaryV2.config({
@@ -8,14 +8,11 @@ export async function uploadImage(base64Data: string, fileName: string) {
   });
 
   try {
-    const result = await cloudinaryV2.uploader.upload(
-      `${base64Data}`,
-      {
-        folder: 'extra/v2',
-        filename_override: fileName,
-        use_filename: true,
-      }
-    );
+    const result = await cloudinaryV2.uploader.upload(`${base64Data}`, {
+      folder: "extra/v2",
+      filename_override: fileName,
+      use_filename: true,
+    });
     return result.secure_url;
   } catch (error) {
     return null;

@@ -40,7 +40,7 @@ export type Mask =
 
 export function hourDifference(
   startHours?: string,
-  endHours?: string
+  endHours?: string,
 ): string | undefined {
   if (!startHours || !endHours) {
     return undefined;
@@ -69,7 +69,7 @@ export function hourDifference(
 export function CalculateHoursValue(
   salary: number,
   days: number,
-  hours: number
+  hours: number,
 ): {
   hour_value: number;
   extra_hour_value: number;
@@ -89,9 +89,8 @@ export function ConvertDateToDecimal(horas: string): number {
 export function CalculateExtraGains(
   extraHoursValue: number,
   totalHoursMade: string,
-  discountedHours?: string
+  discountedHours?: string,
 ): number {
-
   const extraHoursRealized = ConvertDateToDecimal(totalHoursMade);
   if (discountedHours) {
     const discountedHoursDecimal = ConvertDateToDecimal(discountedHours);

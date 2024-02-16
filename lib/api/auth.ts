@@ -30,7 +30,7 @@ export async function ValidateSession(sessionId: string) {
 
 export function CreateSessionCookie(
   sessionId: string,
-  user: User
+  user: User,
 ): {
   sessionCookie: Cookie;
   user: User;
@@ -42,7 +42,7 @@ export function CreateSessionCookie(
       ...user,
       sessionId,
     }),
-    sessionCookie.attributes
+    sessionCookie.attributes,
   );
   api.defaults.headers.common.Authorization = `Bearer ${sessionId}`;
   return { sessionCookie, user } as const;
@@ -58,7 +58,7 @@ export async function GetAllUserSessions(userId: string): Promise<Session[]> {
 }
 
 export async function GetBearerToken(
-  authorizationHeader: string | null
+  authorizationHeader: string | null,
 ): Promise<string | null> {
   const sessionId = lucia.readBearerToken(authorizationHeader ?? "");
   return sessionId;
