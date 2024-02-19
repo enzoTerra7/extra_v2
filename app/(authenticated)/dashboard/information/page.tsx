@@ -80,13 +80,6 @@ export default function Information() {
           </Text>
           <ul>
             <li>
-              <Bold>Dashboard</Bold> - Será adicionada uma tela de dashboard
-              onde será possível visualizar quantas horas você fez por dia
-              durante seu mês, além de todo o valor que deverá receber naquele
-              mês de extras, o total das suas horas já feitas no mês e o total
-              de horas desde que entrou na plataforma!
-            </li>
-            <li>
               <Bold>Recuperação de Senha</Bold> - Como as pessoas têm memória
               fraca e podem acabar esquecendo a senha, será implementada uma
               tela de recuperação de senha para que você possa redefinir a sua

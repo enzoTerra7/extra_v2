@@ -45,7 +45,7 @@ export default function Home() {
     onSuccess(data) {
       UpdateCookiesAndHeader(data.user, data.session);
       toast.success("Login realizado com sucesso!");
-      router.push("/dashboard/my-extras");
+      router.push("/dashboard");
     },
     onError(error: AxiosError) {
       toast.error(

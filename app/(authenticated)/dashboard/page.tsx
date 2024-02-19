@@ -1,6 +1,10 @@
 "use client";
+import { DashboardPayloadGet } from "@/app/api/dashboard/route";
+import { Loader } from "@/components/loadar";
 import { Divider } from "@/components/ui/divisor";
 import { ProgressBar } from "@/components/ui/progress-bar";
+import { Skeleton } from "@/components/ui/skeleton";
+import api from "@/lib/axios";
 import { minutesFormatter } from "@/lib/utils";
 import {
   BadgeDelta,
@@ -10,6 +14,7 @@ import {
   AreaChart,
   CustomTooltipProps,
 } from "@tremor/react";
+import { useQuery } from "react-query";
 
 const cardsData = [
   {
@@ -38,37 +43,6 @@ const cardsData = [
   },
 ];
 
-const graphData = [
-  {
-    date: "01/05/23",
-    hours: 245,
-  },
-  {
-    date: "02/05/23",
-    hours: 125,
-  },
-  {
-    date: "03/05/23",
-    hours: 35,
-  },
-  {
-    date: "04/05/23",
-    hours: 45,
-  },
-  {
-    date: "05/05/23",
-    hours: 90,
-  },
-  {
-    date: "06/05/23",
-    hours: 180,
-  },
-  {
-    date: "07/05/23",
-    hours: 157,
-  },
-];
-
 const tooltip = (props: CustomTooltipProps) => {
   const { payload, active } = props;
   if (!active || !payload) return null;
@@ -90,33 +64,79 @@ const tooltip = (props: CustomTooltipProps) => {
 };
 
 export default function Dashboard() {
+  const query = useQuery({
+    queryKey: ["GetDashboardData"],
+    queryFn: async () => {
+      const { data } = await api.get("/dashboard");
+      return data as DashboardPayloadGet;
+    },
+  });
+
   return (
     <>
-      <div className="w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-        {cardsData.map((item) => (
-          <Card
-            className="md:last:col-span-2 xl:last:col-span-1 p-6 flex gap-4 flex-col rounded-xl bg-neutral-100 dark:bg-neutral-900"
-            key={item.title}
-          >
+      {query.isLoading ? (
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+          <Card className="md:last:col-span-2 xl:last:col-span-1 p-6 flex gap-4 flex-col rounded-xl bg-neutral-100 dark:bg-neutral-900">
             <div className="gap-4 flex w-full justify-between">
               <div className="truncate">
-                <Text>{item.title}</Text>
-                <Title className="truncate text-tremor-content-emphasis dark:text-dark-tremor-content-emphasis">
-                  {item.metric}
-                </Title>
+                <Skeleton className="w-1/3 h-4" />
+                <Skeleton className="w-2/3 h-4" />
               </div>
-              <BadgeDelta
-                className="rounded-xl text-foreground"
-                deltaType={item.deltaType}
-              >
-                {item.delta}
-              </BadgeDelta>
+              <Skeleton className="w-12 h-4" />
             </div>
             <Divider />
-            <ProgressBar progress={(item.progress * 100) / item.total} />
+            <Skeleton className="w-full h-4" />
           </Card>
-        ))}
-      </div>
+          <Card className="md:last:col-span-2 xl:last:col-span-1 p-6 flex gap-4 flex-col rounded-xl bg-neutral-100 dark:bg-neutral-900">
+            <div className="gap-4 flex w-full justify-between">
+              <div className="truncate">
+                <Skeleton className="w-1/3 h-4" />
+                <Skeleton className="w-2/3 h-4" />
+              </div>
+              <Skeleton className="w-12 h-4" />
+            </div>
+            <Divider />
+            <Skeleton className="w-full h-4" />
+          </Card>
+          <Card className="md:last:col-span-2 xl:last:col-span-1 p-6 flex gap-4 flex-col rounded-xl bg-neutral-100 dark:bg-neutral-900">
+            <div className="gap-4 flex w-full justify-between">
+              <div className="truncate">
+                <Skeleton className="w-1/3 h-4" />
+                <Skeleton className="w-2/3 h-4" />
+              </div>
+              <Skeleton className="w-12 h-4" />
+            </div>
+            <Divider />
+            <Skeleton className="w-full h-4" />
+          </Card>
+        </div>
+      ) : (
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+          {query.data?.cardsData.map((item) => (
+            <Card
+              className="md:last:col-span-2 xl:last:col-span-1 p-6 flex gap-4 flex-col rounded-xl bg-neutral-100 dark:bg-neutral-900"
+              key={item.title}
+            >
+              <div className="gap-4 flex w-full justify-between">
+                <div className="truncate">
+                  <Text>{item.title}</Text>
+                  <Title className="truncate text-tremor-content-emphasis dark:text-dark-tremor-content-emphasis">
+                    {item.metric}
+                  </Title>
+                </div>
+                <BadgeDelta
+                  className="rounded-xl text-foreground"
+                  deltaType={item.deltaType}
+                >
+                  {item.delta}
+                </BadgeDelta>
+              </div>
+              <Divider />
+              <ProgressBar progress={(item.progress * 100) / item.total} />
+            </Card>
+          ))}
+        </div>
+      )}
       <Card className="p-6 rounded-xl bg-neutral-100 dark:bg-neutral-900">
         <>
           <div className="md:flex justify-between">
@@ -125,39 +145,47 @@ export default function Dashboard() {
               <Text> Veja as horas feitas por você no decorrer do mês </Text>
             </div>
           </div>
-          <div className="mt-8 hidden sm:block !fill-black dark:!fill-white">
-            <AreaChart
-              className="mt-5 h-72"
-              data={graphData}
-              index="date"
-              categories={["hours"]}
-              colors={["sky"]}
-              showLegend={false}
-              valueFormatter={minutesFormatter}
-              yAxisWidth={60}
-              animationDuration={300}
-              showAnimation={true}
-              customTooltip={tooltip}
-            />
-          </div>
-          <div className="mt-8 sm:hidden !fill-black dark:!fill-white">
-            <AreaChart
-              className="mt-5 h-72"
-              data={graphData}
-              index="date"
-              categories={["hours"]}
-              colors={["sky"]}
-              showLegend={false}
-              valueFormatter={minutesFormatter}
-              yAxisWidth={60}
-              animationDuration={300}
-              showAnimation={true}
-              // customTooltip={tooltip}
-              startEndOnly={true}
-              // showGradient={false}
-              showYAxis={false}
-            />
-          </div>
+          {query.isLoading ? (
+            <div className="flex items-center justify-center w-full">
+              <Loader />
+            </div>
+          ) : (
+            <>
+              <div className="mt-8 hidden sm:block !fill-black dark:!fill-white">
+                <AreaChart
+                  className="mt-5 h-72"
+                  data={query.data!.graphData}
+                  index="date"
+                  categories={["hours"]}
+                  colors={["sky"]}
+                  showLegend={false}
+                  valueFormatter={minutesFormatter}
+                  yAxisWidth={60}
+                  animationDuration={300}
+                  showAnimation={true}
+                  customTooltip={tooltip}
+                />
+              </div>
+              <div className="mt-8 sm:hidden !fill-black dark:!fill-white">
+                <AreaChart
+                  className="mt-5 h-72"
+                  data={query.data!.graphData}
+                  index="date"
+                  categories={["hours"]}
+                  colors={["sky"]}
+                  showLegend={false}
+                  valueFormatter={minutesFormatter}
+                  yAxisWidth={60}
+                  animationDuration={300}
+                  showAnimation={true}
+                  customTooltip={tooltip}
+                  startEndOnly={true}
+                  showGradient={false}
+                  showYAxis={false}
+                />
+              </div>
+            </>
+          )}
         </>
       </Card>
     </>

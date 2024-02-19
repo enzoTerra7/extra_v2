@@ -81,8 +81,8 @@ export function CalculateHoursValue(
 
 export function ConvertDateToDecimal(horas: string): number {
   const [stringHours, stringMinutes] = horas.split(":");
-  const decimalHours = parseFloat(stringHours);
-  const decimalMinutes = parseFloat(stringMinutes) / 60;
+  const decimalHours = parseFloat(stringHours) * 60;
+  const decimalMinutes = parseFloat(stringMinutes);
   return decimalHours + decimalMinutes;
 }
 

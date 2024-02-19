@@ -18,12 +18,12 @@ export type Routes = {
 };
 
 export const routes: Array<Routes> = [
-  // {
-  //   name: "Dashboard",
-  //   path: "/dashboard",
-  //   icon: LayoutDashboard,
-  //   exact: true
-  // },
+  {
+    name: "Dashboard",
+    path: "/dashboard",
+    icon: LayoutDashboard,
+    exact: true,
+  },
   {
     name: "Meu Extras",
     path: "/dashboard/my-extras",
