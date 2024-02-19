@@ -14,8 +14,8 @@ export default function Information() {
           <Text className="text-start">
             O cálculo das horas extras segue as normas apresentadas na{" "}
             <Bold>CLT</Bold> (Consolidação das Leis do Trabalho). Mais
-            especificamente o artigo 59. Segue abaixo uma ressalva dos trechos mais
-            importantes para nós:
+            especificamente o artigo 59. Segue abaixo uma ressalva dos trechos
+            mais importantes para nós:
           </Text>
           <div className="flex flex-col gap-2.5 bg-neutral-300 dark:bg-neutral-700 p-4 rounded">
             <Text className="text-start">
@@ -75,7 +75,8 @@ export default function Information() {
             </Title>
           </div>
           <Text className="text-start">
-            A nossa plataforma continua em constante evolução e já está preparando algumas novidades para o futuro. Sendo as principais:
+            A nossa plataforma continua em constante evolução e já está
+            preparando algumas novidades para o futuro. Sendo as principais:
           </Text>
           <ul>
             <li>
@@ -86,10 +87,10 @@ export default function Information() {
               de horas desde que entrou na plataforma!
             </li>
             <li>
-              <Bold>Recuperação de Senha</Bold> - Como as pessoas têm memória fraca
-              e podem acabar esquecendo a senha, será implementada uma tela de
-              recuperação de senha para que você possa redefinir a sua caso
-              a perca.
+              <Bold>Recuperação de Senha</Bold> - Como as pessoas têm memória
+              fraca e podem acabar esquecendo a senha, será implementada uma
+              tela de recuperação de senha para que você possa redefinir a sua
+              caso a perca.
             </li>
           </ul>
         </div>
@@ -118,8 +119,8 @@ export default function Information() {
             </li>
             <li>
               <Bold>Login Social</Bold> - Visando facilitar o acesso à
-              plataforma, pode ser inserido login social como: Google,
-              Facebook, etc.
+              plataforma, pode ser inserido login social como: Google, Facebook,
+              etc.
             </li>
           </ul>
         </div>
@@ -127,4 +128,3 @@ export default function Information() {
     </>
   );
 }
-
