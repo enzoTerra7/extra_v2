@@ -140,7 +140,7 @@ export default function MyExtras() {
             </Text>
           </div>
 
-          <div className="flex flex-col lg:items-center lg:justify-end gap-4">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-end gap-4">
             {editable ? (
               <>
                 <Button

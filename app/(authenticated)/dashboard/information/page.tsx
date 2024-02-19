@@ -3,7 +3,7 @@ import { Bold, Text, Title } from "@tremor/react";
 export default function Information() {
   return (
     <>
-      {/* How Works */}
+      {/* Como Funciona */}
       <div className="p-6 flex gap-4 flex-col rounded-xl bg-neutral-100 dark:bg-neutral-900">
         <div className="flex flex-col gap-4">
           <div className="truncate">
@@ -14,7 +14,7 @@ export default function Information() {
           <Text className="text-start">
             O cálculo das horas extras segue as normas apresentadas na{" "}
             <Bold>CLT</Bold> (Consolidação das Leis do Trabalho). Mais
-            especificamente o 59. Segue abaixo uma ressalva dos trechos mais
+            especificamente o artigo 59. Segue abaixo uma ressalva dos trechos mais
             importantes para nós:
           </Text>
           <div className="flex flex-col gap-2.5 bg-neutral-300 dark:bg-neutral-700 p-4 rounded">
@@ -41,7 +41,7 @@ export default function Information() {
           <Text className="text-start">
             Como a base da lei determina que seja de pelo menos 50%, usamos esse
             valor como cálculo para determinar o valor da hora extra. Segue
-            abaixo como é feito o calculo (vale ressaltar que o cálculo é feito
+            abaixo como é feito o cálculo (vale ressaltar que o cálculo é feito
             apenas com base nas horas extras, desconsiderando os adicionais de
             trabalho noturno ou de trabalho em domingos e feriados):
           </Text>
@@ -53,9 +53,9 @@ export default function Information() {
               </Bold>
             </p>
             <small className="text-center">
-              4.33% é o números de semanas trabalhadas no mês. Esse valor foi
+              4.33 é o número de semanas trabalhadas no mês. Esse valor foi
               retirado de consultas através da internet, mas em alguns lugares
-              também se é calculado utilizando 5 semanas
+              também se é calculado utilizando 5 semanas.
             </small>
           </div>
           <div className="flex items-center justify-center text-center bg-neutral-300 dark:bg-neutral-700 p-4 rounded">
@@ -66,37 +66,36 @@ export default function Information() {
         </div>
       </div>
 
-      {/* What's next */}
+      {/* O Que Vem de Novo */}
       <div className="p-6 flex gap-4 flex-col rounded-xl bg-neutral-100 dark:bg-neutral-900">
         <div className="flex flex-col gap-4">
           <div className="truncate">
             <Title className="text-center text-wrap lg:text-start text-4xl font-bold tracking-tight">
-              O que vai vim de novo?
+              O que vai vir de novo?
             </Title>
           </div>
           <Text className="text-start">
-            A nossa plataforma continua em constante evolução e já se é
-            preparado algumas novidades para o futuro. Sendo as principais:
+            A nossa plataforma continua em constante evolução e já está preparando algumas novidades para o futuro. Sendo as principais:
           </Text>
           <ul>
             <li>
-              <Bold>Dashboard</Bold> - Será adicionado uma tela de dashboard
-              aonde será possível visualizar quantas horas você fez por dia
+              <Bold>Dashboard</Bold> - Será adicionada uma tela de dashboard
+              onde será possível visualizar quantas horas você fez por dia
               durante seu mês, além de todo o valor que deverá receber naquele
               mês de extras, o total das suas horas já feitas no mês e o total
               de horas desde que entrou na plataforma!
             </li>
             <li>
-              <Bold>Recuperação de Senha</Bold> - Como o povo tem memória fraca
-              e pode acabar esquecendo a senha, será implementado uma tela de
+              <Bold>Recuperação de Senha</Bold> - Como as pessoas têm memória fraca
+              e podem acabar esquecendo a senha, será implementada uma tela de
               recuperação de senha para que você possa redefinir a sua caso
-              perca.
+              a perca.
             </li>
           </ul>
         </div>
       </div>
 
-      {/* Possible changes to future */}
+      {/* Possíveis Alterações Futuras */}
       <div className="p-6 flex gap-4 flex-col rounded-xl bg-neutral-100 dark:bg-neutral-900">
         <div className="flex flex-col gap-4">
           <div className="truncate">
@@ -113,13 +112,13 @@ export default function Information() {
           </Text>
           <ul>
             <li>
-              <Bold>Cálculos noturnos e de feriados</Bold> - A lei prevê uma
-              adicional de 20% para as horas feitas em períodos noturnos, e de
-              100% para aquelas feitas em feriados ou domingos
+              <Bold>Cálculos noturnos e de feriados</Bold> - A lei prevê um
+              adicional de 20% para as horas feitas em períodos noturnos e de
+              100% para aquelas feitas em feriados ou domingos.
             </li>
             <li>
-              <Bold>Login social</Bold> - Visando facilitar o acesso à
-              plataforma, pode ser inserido login sociais como: Google,
+              <Bold>Login Social</Bold> - Visando facilitar o acesso à
+              plataforma, pode ser inserido login social como: Google,
               Facebook, etc.
             </li>
           </ul>
@@ -128,3 +127,4 @@ export default function Information() {
     </>
   );
 }
+
